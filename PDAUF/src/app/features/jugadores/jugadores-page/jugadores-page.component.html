@@ -1,0 +1,104 @@
+
+<div class="container mt-5 mb-5">
+  <h2 class="mb-4">Jugadores por competición</h2>
+
+  <div class="mb-4">
+    <input type="text" class="form-control" id="buscarJugadores" 
+           placeholder="Buscar jugador:" 
+           [(ngModel)]="finalizarBusq">
+  </div>
+
+  <ul class="nav nav-tabs" id="tabsJugadores" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="futbol-tab" data-bs-toggle="tab" data-bs-target="#jugadores-futbol" type="button" role="tab">Fútbol</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="baloncesto-tab" data-bs-toggle="tab" data-bs-target="#jugadores-baloncesto" type="button" role="tab">Baloncesto</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="voley-tab" data-bs-toggle="tab" data-bs-target="#jugadores-voley" type="button" role="tab">Voleibol</button>
+    </li>
+  </ul>
+
+  <div class="tab-content mt-3" id="tabsJugadoresContenido">
+
+    <div class="tab-pane fade show active" id="jugadores-futbol" role="tabpanel">
+      <h5 class="marcoPersonalizado">Jugadores Fútbol</h5>
+      <div class="row">
+        <ng-container *ngFor="let jugador of jugadoresFiltrados">
+          <div class="col-12 col-md-6 col-lg-3 mb-4" *ngIf="jugador.competicion === 'Fútbol'">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">{{ jugador.nombre }}</h5>
+                <p class="card-text">
+                  <strong>Equipo:</strong> {{ jugador.equipo }}<br>
+                  <strong>Rol:</strong> {{ jugador.posicion }}<br>
+                  <strong>Competición:</strong> {{ jugador.competicion }}
+                </p>
+                <button class="btn btn-warning" data-bs-toggle="modal" [attr.data-bs-target]="'#modal' + jugador.id">
+                  Ver perfil
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="jugadores-baloncesto" role="tabpanel">
+      <h5 class="marcoPersonalizado">Jugadores Baloncesto</h5>
+      <div class="row">
+        <ng-container *ngFor="let jugador of jugadoresFiltrados">
+          <div class="col-12 col-md-6 col-lg-3 mb-4" *ngIf="jugador.competicion === 'Baloncesto'">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">{{ jugador.nombre }}</h5>
+                <p class="card-text"><strong>Equipo:</strong> {{ jugador.equipo }}<br><strong>Rol:</strong> {{ jugador.posicion }}</p>
+                <button class="btn btn-warning" data-bs-toggle="modal" [attr.data-bs-target]="'#modal' + jugador.id">Ver perfil</button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="jugadores-voley" role="tabpanel">
+      <h5 class="marcoPersonalizado">Jugadores Voleibol</h5>
+      <div class="row">
+        <ng-container *ngFor="let jugador of jugadoresFiltrados">
+          <div class="col-12 col-md-6 col-lg-3 mb-4" *ngIf="jugador.competicion === 'Voleibol'">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">{{ jugador.nombre }}</h5>
+                <p class="card-text"><strong>Equipo:</strong> {{ jugador.equipo }}<br><strong>Rol:</strong> {{ jugador.posicion }}</p>
+                <button class="btn btn-warning" data-bs-toggle="modal" [attr.data-bs-target]="'#modal' + jugador.id">Ver perfil</button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div *ngFor="let jugador of jugadores">
+  <div class="modal fade" [id]="'modal' + jugador.id" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-secondary text-white">
+          <h5 class="modal-title">Perfil de {{ jugador.nombre }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Nombre:</strong> {{ jugador.nombre }}</p>
+          <p><strong>Equipo:</strong> {{ jugador.equipo }}</p>
+          <p><strong>Competición:</strong> {{ jugador.competicion }}</p>
+          <p><strong>Posición:</strong> {{ jugador.posicion }}</p>
+          <hr>
+          <p class="text-muted">Estadísticas disponibles próximamente (Proyecto UT4)...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

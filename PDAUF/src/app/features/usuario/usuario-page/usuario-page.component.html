@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <div class="card shadow-sm border-0">
+    <div class="card-header bg-warning text-white">
+      <h2 class="mb-0">Calendario de Partidos: {{ miEquipo }}</h2>
+    </div>
+    <div class="card-body">
+      
+      <div *ngIf="partidosEquipo.length === 0" class="alert alert-light border">
+        No se han encontrado partidos para el equipo <strong>{{ miEquipo }}</strong>.
+      </div>
+
+      <table class="table table-hover" *ngIf="partidosEquipo.length > 0">
+        <thead class="table-light">
+          <tr>
+            <th>Deporte</th>
+            <th>Encuentro</th>
+            <th>Fecha</th>
+            <th>Ubicación</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of partidosEquipo">
+            <td>{{ p.deporte }}</td>
+            <td>
+              <span [class.fw-bold]="p.equipoLocal === miEquipo">{{ p.equipoLocal }}</span> 
+              vs 
+              <span [class.fw-bold]="p.equipoVisitante === miEquipo">{{ p.equipoVisitante }}</span>
+            </td>
+            <td>{{ p.fecha | date:'dd/MM/yyyy HH:mm' }}</td>
+            <td>{{ p.ubicacion }}</td>
+            <td>
+              <span class="badge bg-success">{{ p.resultado || 'Próximamente' }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Equipos | Liga I.E.S. Maestre de Calatrava</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+
+  <header>
+
+   
+  </header>
+
+  <main>
+    <!-- Sección de Equipos -->
+    <div class="container mt-4">
+      <h2 class="mb-4">Equipos por competición</h2>
+
+      <!-- Pestañas -->
+      <ul class="nav nav-tabs" id="tabsCompeticiones" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="futbol-tab" data-bs-toggle="tab" data-bs-target="#futbol" type="button"
+            role="tab">
+            Fútbol
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="baloncesto-tab" data-bs-toggle="tab" data-bs-target="#baloncesto" type="button"
+            role="tab">
+            Baloncesto
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="voley-tab" data-bs-toggle="tab" data-bs-target="#voley" type="button" role="tab">
+            Voleibol
+          </button>
+        </li>
+      </ul>
+
+      <!-- Contenido de las pestañas -->
+      <div class="tab-content mt-3 mb-4" id="tabsCompeticionesContent">
+
+        <!-- Fútbol -->
+        <div class="tab-pane fade show active" id="futbol" role="tabpanel">
+          <div class="accordion" id="futbolEquipos">
+            <!-- 1er Equipo -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="futbolEquipo1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#futbolCollapse1">
+                  Atlético Escolar
+                </button>
+              </h2>
+              <div id="futbolCollapse1" class="accordion-collapse collapse show" data-bs-parent="#futbolEquipos">
+                <div class="accordion-body">
+                  <strong>Capitán:</strong> Marcos Sánchez<br />
+                  <strong>Jugadores:</strong> Juan López, Sergio Pérez, Pedro
+                  Hernández<br />
+                  <div class="posiciones-jugadores">
+                    <strong>Posiciones:</strong>
+                    <ul>
+                      <li><strong>Portero:</strong> Juan López</li>
+                      <li><strong>Defensa:</strong> Sergio Pérez</li>
+                      <li><strong>Delantero:</strong> Pedro Hernández</li>
+                      <li><strong>Medio:</strong> Marcos Sánchez</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2º Equipo -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="futbolEquipo2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#futbolCollapse2">
+                  Unión Juvenil
+                </button>
+              </h2>
+              <div id="futbolCollapse2" class="accordion-collapse collapse" data-bs-parent="#futbolEquipos">
+                <div class="accordion-body">
+                  <strong>Capitán:</strong> Álvaro Ruíz<br />
+                  <strong>Jugadores:</strong> Pablo Morales, Iván Castillo,
+                  Tomás Herrera<br />
+                  <div class="posiciones-jugadores">
+                    <strong>Posiciones:</strong>
+                    <ul>
+                      <li><strong>Portero:</strong> Álvaro Ruíz</li>
+                      <li><strong>Defensa:</strong> Pablo Morales</li>
+                      <li><strong>Delantero:</strong> Tomás Herrera</li>
+                      <li><strong>Medio:</strong> Iván Castillo</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3er Equipo -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="futbolEquipo3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#futbolCollapse3">
+                  Estrellas FC
+                </button>
+              </h2>
+              <div id="futbolCollapse3" class="accordion-collapse collapse" data-bs-parent="#futbolEquipos">
+                <div class="accordion-body">
+                  <strong>Capitana:</strong> Lucía Romero<br />
+                  <strong>Jugadoras:</strong> Paula Navarro, Marta Sánchez,
+                  Elena Torres<br />
+                  <div class="posiciones-jugadores">
+                    <strong>Posiciones:</strong>
+                    <ul>
+                      <li><strong>Portera:</strong> Paula Navarro</li>
+                      <li><strong>Defensa:</strong> Marta Sánchez</li>
+                      <li><strong>Delantera:</strong> Elena Torres</li>
+                      <li><strong>Medio:</strong> Lucía Romero</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4º Equipo -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="futbolEquipo4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#futbolCollapse4">
+                  Fénix FC
+                </button>
+              </h2>
+              <div id="futbolCollapse4" class="accordion-collapse collapse" data-bs-parent="#futbolEquipos">
+                <div class="accordion-body">
+                  <strong>Capitana:</strong> Noelia Vargas<br />
+                  <strong>Jugadoras:</strong> Andrea Molina, Sofía León, Clara
+                  Jiménez<br />
+                  <div class="posiciones-jugadores">
+                    <strong>Posiciones:</strong>
+                    <ul>
+                      <li><strong>Portera:</strong> Andrea Molina</li>
+                      <li><strong>Defensa:</strong> Clara Jiménez</li>
+                      <li><strong>Delantera:</strong> Sofía León</li>
+                      <li><strong>Medio:</strong> Noelia Vargas</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Baloncesto -->
+        <div class="tab-pane fade" id="baloncesto" role="tabpanel">
+          <div class="accordion" id="baloncestoEquipos">
+
+            <!-- 1er equipo -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="baloncestoEquipo1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#baloncestoCollapse1">
+                  Raptors IES
+                </button>
+              </h2>
+              <div id="baloncestoCollapse1" class="accordion-collapse collapse show"
+                data-bs-parent="#baloncestoEquipos">
+                <div class="accordion-body">
+                  <strong>Capitán:</strong> Diego Marin<br />
+                  <strong>Jugadores:</strong> Carla Torres, David Sánchez, Miguel Ortega<br />
+                  <div class="posiciones-jugadores">
+                    <strong>Posiciones:</strong>
+                    <ul>
+                      <li><strong>Base:</strong> Diego Marin</li>
+                      <li><strong>Alero:</strong> Carla Torres</li>
+                      <li><strong>Pívot:</strong> David Sánchez</li>
+                      <li><strong>Escolta:</strong> Miguel Ortega</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2o equipo -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="baloncestoEquipo2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#baloncestoCollapse2">
+                  Basket Calatrava
+                </button>
+              </h2>
+              <div id="baloncestoCollapse2" class="accordion-collapse collapse" data-bs-parent="#baloncestoEquipos">
+                <div class="accordion-body">
+                  <strong>Capitán:</strong> Nuria Fernández<br />
+                  <strong>Jugadores:</strong> Javier Muñoz, Elena López, Pablo Alarcón<br />
+                  <div class="posiciones-jugadores">
+                    <strong>Posiciones:</strong>
+                    <ul>
+                      <li><strong>Base:</strong> Javier Muñoz</li>
+                      <li><strong>Alero:</strong> Elena López</li>
+                      <li><strong>Pívot:</strong> Nuria Fernández</li>
+                      <li><strong>Escolta:</strong> Pablo Alarcón</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3er equipo -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="baloncestoEquipo3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#baloncestoCollapse3">
+                  Maestre Baloncesto
+                </button>
+              </h2>
+              <div id="baloncestoCollapse3" class="accordion-collapse collapse" data-bs-parent="#baloncestoEquipos">
+                <div class="accordion-body">
+                  <strong>Capitán:</strong> Daniel Robles<br />
+                  <strong>Jugadores:</strong> Clara Mendoza, Iván Salas, Lucía Carrillo<br />
+                  <div class="posiciones-jugadores">
+                    <strong>Posiciones:</strong>
+                    <ul>
+                      <li><strong>Base:</strong> Iván Salas</li>
+                      <li><strong>Alero:</strong> Daniel Robles</li>
+                      <li><strong>Pívot:</strong> Lucía Carrillo</li>
+                      <li><strong>Escolta:</strong> Clara Mendoza</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4o equipo -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="baloncestoEquipo4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#baloncestoCollapse4">
+                  Halcones del Maestre
+                </button>
+              </h2>
+              <div id="baloncestoCollapse4" class="accordion-collapse collapse" data-bs-parent="#baloncestoEquipos">
+                <div class="accordion-body">
+                  <strong>Capitán:</strong> Sergio Valverde<br />
+                  <strong>Jugadores:</strong> Álvaro Cordero, Iván Domínguez, Rubén Gallego<br />
+                  <div class="posiciones-jugadores">
+                    <strong>Posiciones:</strong>
+                    <ul>
+                      <li><strong>Base:</strong> Álvaro Cordero</li>
+                      <li><strong>Alero:</strong> Rubén Gallego</li>
+                      <li><strong>Pívot:</strong> Iván Domínguez</li>
+                      <li><strong>Escolta:</strong> Sergio Valverde</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Voleibol -->
+        <div class="tab-pane fade" id="voley" role="tabpanel">
+          <div class="accordion" id="voleyEquipos">
+
+            <!-- 1er equipo -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="voleyEquipo1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#voleyCollapse1">
+                  Maestre Volley
+                </button>
+              </h2>
+              <div id="voleyCollapse1" class="accordion-collapse collapse show" data-bs-parent="#voleyEquipos">
+                <div class="accordion-body">
+                  <strong>Capitán:</strong> Andrea Molina<br />
+                  <strong>Jugadores:</strong> María Márquez, Lucía Lara, Alba Martínez<br />
+                  <div class="posiciones-jugadores">
+                    <strong>Posiciones:</strong>
+                    <ul>
+                      <li><strong>Colocador:</strong> Alba Martínez</li>
+                      <li><strong>Rematador:</strong> Lucía Lara</li>
+                      <li><strong>Central:</strong> María Márquez</li>
+                      <li><strong>Líbero:</strong> Andrea Molina</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2o equipo -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="voleyEquipo2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#voleyCollapse2">
+                  Red Calatrava
+                </button>
+              </h2>
+              <div id="voleyCollapse2" class="accordion-collapse collapse" data-bs-parent="#voleyEquipos">
+                <div class="accordion-body">
+                  <strong>Capitán:</strong> Sara Díaz<br />
+                  <strong>Jugadores:</strong> Paula Hidalgo, Adriana Campos, Noa Gómez<br />
+                  <div class="posiciones-jugadores">
+                    <strong>Posiciones:</strong>
+                    <ul>
+                      <li><strong>Colocador:</strong> Sara Díaz</li>
+                      <li><strong>Rematador:</strong> Paula Hidalgo</li>
+                      <li><strong>Central:</strong> Adriana Campos</li>
+                      <li><strong>Líbero:</strong> Noa Gómez</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3er equipo -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="voleyEquipo3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#voleyCollapse3">
+                  Las Águilas
+                </button>
+              </h2>
+              <div id="voleyCollapse3" class="accordion-collapse collapse" data-bs-parent="#voleyEquipos">
+                <div class="accordion-body">
+                  <strong>Capitán:</strong> Laura Serrano<br />
+                  <strong>Jugadores:</strong> Patricia Gómez, Noelia Ramírez, Claudia Navarro<br />
+                  <div class="posiciones-jugadores">
+                    <strong>Posiciones:</strong>
+                    <ul>
+                      <li><strong>Colocador:</strong> Laura Serrano</li>
+                      <li><strong>Rematador:</strong> Patricia Gómez</li>
+                      <li><strong>Central:</strong> Noelia Ramírez</li>
+                      <li><strong>Líbero:</strong> Claudia Navarro</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4o equipo -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="voleyEquipo4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#voleyCollapse4">
+                  Smash Calatrava
+                </button>
+              </h2>
+              <div id="voleyCollapse4" class="accordion-collapse collapse" data-bs-parent="#voleyEquipos">
+                <div class="accordion-body">
+                  <strong>Capitán:</strong> Irene Lozano<br />
+                  <strong>Jugadores:</strong> Sara Calderón, Marina Fuentes, Alicia Romero<br />
+                  <div class="posiciones-jugadores">
+                    <strong>Posiciones:</strong>
+                    <ul>
+                      <li><strong>Colocador:</strong> Alicia Romero</li>
+                      <li><strong>Rematador:</strong> Sara Calderón</li>
+                      <li><strong>Central:</strong> Marina Fuentes</li>
+                      <li><strong>Líbero:</strong> Irene Lozano</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<div class="container mt-4">
+  <h1>Panel de Administración</h1>
+  <hr>
+
+  <div class="p-3 mb-4">
+    <!--Encabezado en función de si estamos editando o creando un nuevo partido-->
+    <h2>{{ editando ? 'Modificar partido' : 'Crear nuevo partido' }}</h2>
+    <div class="row">
+      
+      <div class="col-md-3 mb-2">
+        <label class="small fw-bold">Deporte:</label>
+        <input type="text" [(ngModel)]="partidoForm.deporte" placeholder="Deporte" class="form-control">
+      </div>
+      <div class="col-md-3 mb-2">
+        <label class="small fw-bold">Local:</label>
+        <input type="text" [(ngModel)]="partidoForm.equipoLocal" placeholder="Equipo Local" class="form-control">
+      </div>
+      <div class="col-md-3 mb-2">
+        <label class="small fw-bold">Visitante:</label>
+        <input type="text" [(ngModel)]="partidoForm.equipoVisitante" placeholder="Equipo Visitante" class="form-control">
+      </div>
+      <div class="col-md-3 mb-2">
+        <label class="small fw-bold">Fecha y hora:</label>
+        <input type="datetime-local" [(ngModel)]="partidoForm.fecha" class="form-control">
+      </div>
+      <div class="col-md-4 mb-2">
+        <label class="small fw-bold">Ubicación:</label>
+        <input type="text" [(ngModel)]="partidoForm.ubicacion" placeholder="Ubicación" class="form-control">
+      </div>
+
+      <div class="col-md-4 mb-2">
+        <label class="small fw-bold">Árbitro asignado:</label>
+        <select [(ngModel)]="partidoForm.arbitro" class="form-select">
+          <option value="">-- Seleccionar árbitro --</option>
+          <option *ngFor="let a of arbitros" [value]="a._id">
+            {{ a.username }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-4 mb-2">
+        <label class="small fw-bold">RESULTADO FINAL:</label>
+        <input type="text" [(ngModel)]="partidoForm.resultado" placeholder="Ej: 2-0 o Pendiente" class="form-control">
+      </div>
+
+    </div>
+    
+    <div class="mt-3">
+      <!--Método para guardar o modificar formulario-->
+      <button (click)="guardar()" class="btn btn-primary">
+        {{ editando ? 'Actualizar Partido' : 'Crear Partido' }}
+      </button>
+      <!--Método para resetear el formulario-->
+
+      <button (click)="resetear()" class="btn btn-secondary" *ngIf="editando">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- Tabla de partidos existentes -->
+   <h2>Partidos Existentes</h2>
+
+  <table class="table table-hover">
+    <thead class="table-warning">
+      <tr>
+        <th>Deporte</th>
+        <th>Encuentro</th>
+        <th>Fecha</th>
+        <th>Árbitro</th> 
+        <th>Resultado</th> 
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <!-- Buscar info sobre los partidos y mostrar sus detalles -->
+      <tr *ngFor="let p of partidos">
+        <td>{{ p.deporte }}</td>
+        <td>{{ p.equipoLocal }} vs {{ p.equipoVisitante }}</td>
+        <td>{{ p.fecha | date:'short' }}</td>
+        <td>
+          <span class="badge bg-info text-dark">{{ p.arbitro || 'No asignado' }}</span>
+        </td>
+        <td>
+          <strong>{{ p.resultado || 'Pte' }}</strong>
+        </td>
+        <td>
+          <button (click)="editar(p)" class="btn btn-sm btn-warning">Editar</button>
+          <button (click)="borrar(p._id)" class="btn btn-sm btn-danger">Borrar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

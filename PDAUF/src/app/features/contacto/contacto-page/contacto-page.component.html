@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Contacto | Liga I.E.S. Maestre de Calatrava</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ 
+
+</head>
+
+<body>
+
+  <header>
+    
+
+  </header>
+
+  <main>
+
+    <div class="container mt-5 mb-5">
+      <h2 class="mb-4">Contacto con la administración</h2>
+
+      <!-- Preguntas frecuentes -->
+      <div class="mb-5">
+        <h4>Preguntas frecuentes</h4>
+        <div class="faq-item">
+          <strong>¿Hasta cuándo están abiertas las inscripciones?</strong>
+          <p>Las inscripciones están abiertas hasta el <strong>25 de noviembre.</strong></p>
+        </div>
+        <div class="faq-item">
+          <strong>¿Dónde puedo ver los resultados y clasificaciones?</strong>
+          <p>En las secciones de <a href="resultados.html">Resultados</a> y <a
+              href="clasificaciones.html">Clasificaciones</a> actualizadas cada jornada.</p>
+        </div>
+        <div class="faq-item">
+          <strong>¿Quién puede participar en las competiciones?</strong>
+          <p>Todos los alumnos del instituto pueden formar parte de los equipos según las bases de cada deporte.</p>
+        </div>
+      </div>
+
+      <!-- Formulario de inscripción -->
+      <h4>¡Inscíbete ahora!</h4>
+      <form id="formInscripcion">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre completo</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Nombre y apellidos">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com">
+        </div>
+        <div class="mb-3">
+          <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+          <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento">
+        </div>
+        <div class="mb-3">
+          <label for="deporte" class="form-label">Deporte</label>
+          <select class="form-select" id="deporte" name="deporte">
+            <option selected disabled>Selecciona un deporte</option>
+            <option value="futbol">Fútbol</option>
+            <option value="baloncesto">Baloncesto</option>
+            <option value="voleibol">Voleibol</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="mensaje" class="form-label">Mensaje</label>
+          <textarea class="form-control" id="mensaje" rows="5" placeholder="Información adicional"></textarea>
+        </div>
+        <button type="submit" class="btn btn-danger">Inscribirse</button>
+
+        <!-- Toast de confirmación -->
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11"></div>
+        <div id="toastConfirmacion" class="toast align-items-center text-bg-success border-0" role="alert"
+          aria-live="assertive" aria-atomic="true">
+          <div class="d-flex">
+            <div class="toast-body">
+              Inscripción enviada correctamente.
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+              aria-label="Cerrar"></button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </main>
+ 
+
+  <!--Script del toast-->
+ <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const formInscripcion = document.getElementById("formInscripcion");
+    const toastConfirmacion = document.getElementById("toastConfirmacion");
+
+    formInscripcion.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const toast = new bootstrap.Toast(toastConfirmacion, {
+        autohide: true,
+        delay: 3000
+      });
+
+      toast.show();
+      this.reset();
+    });
+  });
+</script>
+
+</body>
+
+</html>
