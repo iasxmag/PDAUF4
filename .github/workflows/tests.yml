@@ -20,12 +20,12 @@ jobs:
 
       - name: Instalar dependencias Angular
         run: |
-          cd pdauf
+          cd PDAUF
           npm install
 
       - name: Ejecutar pruebas Angular
         run: |
-          cd pdauf
+          cd PDAUF
           npm run test -- --watch=false --browsers=ChromeHeadless
 
   test-laravel:
@@ -41,16 +41,16 @@ jobs:
 
       - name: Instalar dependencias Laravel
         run: |
-          cd ligadeportiva
+          cd LigaDeportiva
           composer install
 
       - name: Copiar .env
         run: |
-          cd ligadeportiva
+          cd LigaDeportiva
           cp .env.example .env
           php artisan key:generate
 
       - name: Ejecutar pruebas Laravel
         run: |
-          cd ligadeportiva
+          cd LigaDeportiva
           php artisan test
