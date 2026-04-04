@@ -1,0 +1,56 @@
+name: CI Testing Workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-angular:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias Angular
+        run: |
+          cd pdauf
+          npm install
+
+      - name: Ejecutar pruebas Angular
+        run: |
+          cd pdauf
+          npm run test -- --watch=false --browsers=ChromeHeadless
+
+  test-laravel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Instalar dependencias Laravel
+        run: |
+          cd ligadeportiva
+          composer install
+
+      - name: Copiar .env
+        run: |
+          cd ligadeportiva
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Ejecutar pruebas Laravel
+        run: |
+          cd ligadeportiva
+          php artisan test
