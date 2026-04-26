@@ -4,7 +4,7 @@ FROM php:8.4-fpm
 # Instalación de dependencias del sistema 
 RUN apt-get update && apt-get install -y \
     git unzip libzip-dev libpng-dev libonig-dev libpq-dev curl zip \
-    && docker-php-ext-install pdo pdo_mysql zip mbstring exif pcntl bcmath
+    && docker-php-ext-install pdo pdo_pgsql zip mbstring exif pcntl bcmath
 
 # Instalación de Composer desde la imagen oficial 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
