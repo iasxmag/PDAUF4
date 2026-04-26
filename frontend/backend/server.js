@@ -19,4 +19,4 @@ mongoose.connect('mongodb+srv://iasmina:1234@cluster0.v2ld42t.mongodb.net/LigaDe
   .then(() => console.log('MongoDB conectado'))
   .catch(err => console.error(err));
 
-app.listen(3000, () => console.log('Servidor en http://localhost:3000'));
+app.listen(3000, () => console.log('Servidor arrancado'));

@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { JugadoresService } from './jugadores.service';
+import { environment } from '../../../environments/environment';
 
 //Mock de datos
   const jugadores = [
@@ -52,7 +53,7 @@ describe('JugadoresService', () => {
       expect(jugadores[0].nombre).toBe('Pablo Jiménez');
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/api/jugadores');
+    const req = httpMock.expectOne(`${environment.apiUrl}/jugadores`);
     expect(req.request.method).toBe('GET');
     req.flush(jugadores);
   });
@@ -63,7 +64,7 @@ describe('JugadoresService', () => {
       expect(jugador.nombre).toBe('Pablo Jiménez');
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/api/jugadores/1');
+    const req = httpMock.expectOne(`${environment.apiUrl}/jugadores/1`);
     expect(req.request.method).toBe('GET');
     req.flush(jugadores[0]);
   });
@@ -77,7 +78,7 @@ describe('JugadoresService', () => {
       }
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/api/jugadores/99');
+    const req = httpMock.expectOne(`${environment.apiUrl}/jugadores/99`);
     req.flush('No encontrado', { status: 404, statusText: 'Not Found' });
   });
 });
