@@ -1,28 +1,32 @@
-# Usa la imagen oficial de PHP con FPM 
+
 FROM php:8.2-fpm
 
-# Instalación de dependencias del sistema 
+
 RUN apt-get update && apt-get install -y \
     git unzip libzip-dev libpng-dev libonig-dev libpq-dev curl zip \
-    && docker-php-ext-install pdo pdo_mysql zip mbstring exif pcntl bcmath
+    && docker-php-ext-install pdo pdo_mysql pdo_pgsql zip mbstring exif pcntl bcmath [cite: 212, 214, 216]
 
-# Instalación de Composer desde la imagen oficial 
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Directorio de trabajo en el contenedor 
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer 
+
+
 WORKDIR /var/www
 
-# Copiar el código del backend al contenedor 
-COPY . /var/www
 
-# Instalación de dependencias de Laravel y ajuste de permisos 
-RUN composer install --no-dev --optimize-autoloader \
-    && chown -R www-data:www-data /var/www/ \
-    && mkdir -p /var/www/storage \
-    && chown -R www-data:www-data /var/www/storage 
+COPY . /var/www 
 
-# Exponer el puerto interno de PHP-FPM 
+
+RUN mkdir -p /var/www/storage/framework/sessions \
+    && mkdir -p /var/www/storage/framework/views \
+    && mkdir -p /var/www/storage/framework/cache \
+    && mkdir -p /var/www/bootstrap/cache
+
+
+RUN composer install --no-dev --optimize-autoloader 
+
+
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache 
+
+
 EXPOSE 9000
-
-# Comando para iniciar PHP-FPM 
-CMD ["php-fpm"]
+CMD ["php-fpm"] 
